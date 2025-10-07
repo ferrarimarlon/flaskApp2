@@ -10,17 +10,17 @@ para um App de comida.
 1- Listar todos os pratos (GET)
 2- Adicionar um novo prato (GET)
 '''
-@app.route("/", methods=['GET','POST'])
+@app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/lista_pratos")
+@app.route("/lista_pratos", methods=['GET'])
 def lista_pratos():
     arq = open("payload.json", "r")
     data = arq.read()
     return json.dumps(data)
 
-@app.route("/add_prato", methods=['POST'])
+@app.route("/add_prato",methods=['POST'])
 def add_prato():
     arq = open("payload.json")
     data = arq.read()
